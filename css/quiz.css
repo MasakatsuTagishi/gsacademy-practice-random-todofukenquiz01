@@ -1,0 +1,55 @@
+body{
+    margin:0;
+    padding:0;
+    text-align:left;
+    font-size: 32px;
+}
+
+.mondai_num{
+    display: flex;
+}
+
+#prefectures_btn{
+    text-align: center;
+}
+
+#answer{
+    text-align: center;
+}
+
+#maru_btn{
+    color: rgb(235, 125, 125);
+}
+
+#batsu_btn{
+    color: rgb(48, 136, 238);
+}
+
+footer{
+    background-color: #fff;
+    text-align: center;
+}
+
+ul{
+    padding: 0;
+    display:table;  /* 定義 */
+    table-layout: fixed;
+    width:100%;
+}
+
+li{
+    text-align: center;
+    list-style-type:none;
+    background-color: #FFF;
+    display:table-cell;  /* 定義 */
+    cursor: pointer;
+}
+
+li:hover{
+    background: #0066CC;
+    color:#fff;
+}
+
+#rate_btn{
+    text-align: center;
+}

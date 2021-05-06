@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/quiz.css">
+        <title>都道府県クイズ</title>
+    </head>
+    <body>
+
+    <main>
+        <div class="quiz_area">
+            <div class="mondai_num">
+                <div>第</div>
+                <div id="question_num">0</div>
+                <div>問</div>
+            </div>
+            <div id="prefectures_btn"><img src="img/日本地図.jpg"></div>
+            <div id="answer"></div>
+            <ul>
+                <li id="maru_btn">○</li>
+                <li id="batsu_btn">×</li>
+            </ul>
+        </div>
+        <div>
+            <div id="correct">正解数</div>
+            <div id="uncorrect">不正解数</div>
+        </div>
+    </main>
+
+    <div id="rate_btn">結果</div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+
+        // 都道府県ボタンを押したら非表示にする
+        $('#prefectures_btn').on('click',function(){
+        $('#answer').text('');
+        });
+
+        // ○を押した回数と×を押した回数をカウントする
+        let win = 0;
+        let lose = 0;
+        let total = win + lose ;
+        let question = 0;
+        let rate =  win/question*100;
+
+        $('#maru_btn').on('click',function(){
+        $('#correct').text( win += 1 );
+        $('#total').text( total += 1 );
+        });
+
+        $('#batsu_btn').on('click',function(){
+        $('#uncorrect').text( lose += 1 );
+        $('#total').text( total += 1 );
+        });
+
+        // 正解数・不正解数非表示
+        $('#correct').hide();
+        $('#uncorrect').hide();
+
+        // 結果ボタンを押したらなんかする
+        $('#rate_btn').on('click',function(){
+            const number = Math.floor(win/question*100);
+            if( number == 100 ){
+            $('#rate_btn').text('すばらしい！！');
+            } else if ( number >= 90 ){
+            $('#rate_btn').text('よくできました！');
+            } else if ( number >= 80 ){
+            $('#rate_btn').text('ぼちぼちでしょう。');
+            } else if ( number < 80 ){
+            $('#rate_btn').text('もっと勉強しましょう…');
+            }
+            });
+        
+
+        // 都道府県ボタンを押したらなんかする
+        $('#prefectures_btn').on('click',function(){
+            // 問題番号を増やす
+            $('#question_num').text( question += 1 );
+            // ０から４のランダムな数を決める
+            const min = 0;
+            const max = 46;
+            const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+            console.log(randomNumber);
+            if(randomNumber == 0){
+                $('#prefectures_btn').html('<img src="img/岡山県.png" alt="岡山県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('岡山県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('岡山県');
+                    });
+            } else if(randomNumber == 1){
+                $('#prefectures_btn').html('<img src="img/宮城県.png" alt="宮城県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('宮城県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('宮城県');
+                    });
+            } else if(randomNumber == 2){
+                $('#prefectures_btn').html('<img src="img/広島県.png" alt="広島県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('広島県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('広島県');
+                    });
+            } else if(randomNumber == 3){
+                $('#prefectures_btn').html('<img src="img/山口県.png" alt="山口県">');
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('山口県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('山口県');
+                    });
+            } else if(randomNumber == 4){
+                $('#prefectures_btn').html('<img src="img/鳥取県.png" alt="鳥取県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('鳥取県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('鳥取県');
+                    });
+            } else if(randomNumber == 5){
+                $('#prefectures_btn').html('<img src="img/島根県.png" alt="島根県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('島根県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('島根県');
+                    });
+            } else if(randomNumber == 6){
+                $('#prefectures_btn').html('<img src="img/北海道.png" alt="北海道">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('北海道');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('北海道');
+                    });
+            } else if(randomNumber == 7){
+                $('#prefectures_btn').html('<img src="img/愛知県.png" alt="愛知県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('愛知県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('愛知県');
+                    });
+            } else if(randomNumber == 8){
+                $('#prefectures_btn').html('<img src="img/愛媛県.png" alt="愛媛県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('愛媛県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('愛媛県');
+                    });
+            } else if(randomNumber == 9){
+                $('#prefectures_btn').html('<img src="img/茨城県.png" alt="茨城県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('茨城県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('茨城県');
+                    });
+            } else if(randomNumber == 10){
+                $('#prefectures_btn').html('<img src="img/沖縄県.png" alt="沖縄県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('沖縄県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('沖縄県');
+                    });
+            } else if(randomNumber == 11){
+                $('#prefectures_btn').html('<img src="img/岩手県.png" alt="岩手県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('岩手県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('岩手県');
+                    });
+            } else if(randomNumber == 12){
+                $('#prefectures_btn').html('<img src="img/岐阜県.png" alt="岐阜県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('岐阜県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('岐阜県');
+                    });
+            } else if(randomNumber == 13){
+                $('#prefectures_btn').html('<img src="img/宮崎県.png" alt="宮崎県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('宮崎県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('宮崎県');
+                    });
+            } else if(randomNumber == 14){
+                $('#prefectures_btn').html('<img src="img/京都府.png" alt="京都府">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('京都府');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('京都府');
+                    });
+            } else if(randomNumber == 15){
+                $('#prefectures_btn').html('<img src="img/熊本県.png" alt="熊本県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('熊本県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('熊本県');
+                    });
+            } else if(randomNumber == 16){
+                $('#prefectures_btn').html('<img src="img/群馬県.png" alt="群馬県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('群馬県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('群馬県');
+                    });
+            } else if(randomNumber == 17){
+                $('#prefectures_btn').html('<img src="img/香川県.png" alt="香川県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('香川県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('香川県');
+                    });
+            } else if(randomNumber == 18){
+                $('#prefectures_btn').html('<img src="img/高知県.png" alt="高知県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('高知県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('高知県');
+                    });
+            } else if(randomNumber == 19){
+                $('#prefectures_btn').html('<img src="img/佐賀県.png" alt="佐賀県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('佐賀県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('佐賀県');
+                    });
+            } else if(randomNumber == 20){
+                $('#prefectures_btn').html('<img src="img/埼玉県.png" alt="埼玉県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('埼玉県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('埼玉県');
+                    });
+            } else if(randomNumber == 21){
+                $('#prefectures_btn').html('<img src="img/三重県.png" alt="三重県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('三重県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('三重県');
+                    });
+            } else if(randomNumber == 22){
+                $('#prefectures_btn').html('<img src="img/山形県.png" alt="山形県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('山形県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('山形県');
+                    });
+            } else if(randomNumber == 23){
+                $('#prefectures_btn').html('<img src="img/山梨県.png" alt="山梨県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('山梨県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('山梨県');
+                    });
+            } else if(randomNumber == 24){
+                $('#prefectures_btn').html('<img src="img/滋賀県.png" alt="滋賀県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('滋賀県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('滋賀県');
+                    });
+            } else if(randomNumber == 25){
+                $('#prefectures_btn').html('<img src="img/鹿児島県.png" alt="鹿児島県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('鹿児島県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('鹿児島県');
+                    });
+            } else if(randomNumber == 26){
+                $('#prefectures_btn').html('<img src="img/秋田県.png" alt="秋田県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('秋田県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('秋田県');
+                    });
+            } else if(randomNumber == 27){
+                $('#prefectures_btn').html('<img src="img/新潟県.png" alt="新潟県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('新潟県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('新潟県');
+                    });
+            } else if(randomNumber == 28){
+                $('#prefectures_btn').html('<img src="img/神奈川県.png" alt="神奈川県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('神奈川県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('神奈川県');
+                    });
+            } else if(randomNumber == 29){
+                $('#prefectures_btn').html('<img src="img/青森県.png" alt="青森県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('青森県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('青森県');
+                    });
+            } else if(randomNumber == 30){
+                $('#prefectures_btn').html('<img src="img/静岡県.png" alt="静岡県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('静岡県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('静岡県');
+                    });
+            } else if(randomNumber == 31){
+                $('#prefectures_btn').html('<img src="img/石川県.png" alt="石川県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('石川県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('石川県');
+                    });
+            } else if(randomNumber == 32){
+                $('#prefectures_btn').html('<img src="img/千葉県.png" alt="千葉県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('千葉県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('千葉県');
+                    });
+            } else if(randomNumber == 33){
+                $('#prefectures_btn').html('<img src="img/大阪府.png" alt="大阪府">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('大阪府');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('大阪府');
+                    });
+            } else if(randomNumber == 34){
+                $('#prefectures_btn').html('<img src="img/大分県.png" alt="大分県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('大分県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('大分県');
+                    });
+            } else if(randomNumber == 35){
+                $('#prefectures_btn').html('<img src="img/長崎県.png" alt="長崎県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('長崎県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('長崎県');
+                    });
+            } else if(randomNumber == 36){
+                $('#prefectures_btn').html('<img src="img/長野県.png" alt="長野県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('長野県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('長野県');
+                    });
+            } else if(randomNumber == 37){
+                $('#prefectures_btn').html('<img src="img/東京都.png" alt="東京都">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('東京都');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('東京都');
+                    });
+            } else if(randomNumber == 38){
+                $('#prefectures_btn').html('<img src="img/徳島県.png" alt="徳島県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('徳島県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('徳島県');
+                    });
+            } else if(randomNumber == 39){
+                $('#prefectures_btn').html('<img src="img/栃木県.png" alt="栃木県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('栃木県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('栃木県');
+                    });
+            } else if(randomNumber == 40){
+                $('#prefectures_btn').html('<img src="img/奈良県.png" alt="奈良県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('奈良県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('奈良県');
+                    });
+            } else if(randomNumber == 41){
+                $('#prefectures_btn').html('<img src="img/富山県.png" alt="富山県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('富山県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('富山県');
+                    });
+            } else if(randomNumber == 42){
+                $('#prefectures_btn').html('<img src="img/福井県.png" alt="福井県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('福井県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('福井県');
+                    });
+            } else if(randomNumber == 43){
+                $('#prefectures_btn').html('<img src="img/福岡県.png" alt="福岡県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('福岡県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('福岡県');
+                    });
+            } else if(randomNumber == 44){
+                $('#prefectures_btn').html('<img src="img/福島県.png" alt="福島県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('福島県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('福島県');
+                    });
+            } else if(randomNumber == 45){
+                $('#prefectures_btn').html('<img src="img/兵庫県.png" alt="兵庫県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('兵庫県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('兵庫県');
+                    });
+            } else if(randomNumber == 46){
+                $('#prefectures_btn').html('<img src="img/和歌山県.png" alt="和歌山県">'); 
+                    $('#maru_btn').on('click',function(){
+                    $('#answer').text('和歌山県');
+                    });
+                    $('#batsu_btn').on('click',function(){
+                    $('#answer').text('和歌山県');
+                    });
+            }
+        });
+
+
+
+        </script>
+    </body>
+</html>
