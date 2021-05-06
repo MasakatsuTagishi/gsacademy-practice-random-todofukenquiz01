@@ -5,8 +5,13 @@ body{
     font-size: 32px;
 }
 
+.quiz_area{
+    margin-top: 200px;
+}
+
 .mondai_num{
     display: flex;
+    margin-left: 400px;
 }
 
 #prefectures_btn{
